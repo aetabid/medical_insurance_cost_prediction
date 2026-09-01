@@ -1,112 +1,84 @@
-# Data Science Project Boilerplate
+# Medical Insurance Cost Analysis
 
-This boilerplate is designed to kickstart data science projects by providing a basic setup for database connections, data processing, and machine learning model development. It includes a structured folder organization for your datasets and a set of pre-defined Python packages necessary for most data science tasks.
+## Overview
 
-## Structure
+This project analyzes medical insurance cost data to better understand the factors associated with higher healthcare charges.
 
-The project is organized as follows:
+Using Python and regression analysis, I explored relationships between insurance charges and variables such as age, BMI, smoking status, number of children, sex, and geographic region.
 
-- **`src/app.py`** → Main Python script where your project will run.
-- **`src/explore.ipynb`** → Notebook for exploration and testing. Once exploration is complete, migrate the clean code to `app.py`.
-- **`src/utils.py`** → Auxiliary functions, such as database connection.
-- **`requirements.txt`** → List of required Python packages.
-- **`models/`** → Will contain your SQLAlchemy model classes.
-- **`data/`** → Stores datasets at different stages:
-  - **`data/raw/`** → Raw data.
-  - **`data/interim/`** → Temporarily transformed data.
-  - **`data/processed/`** → Data ready for analysis.
+The goal was to build a regression model, compare actual versus predicted insurance costs, evaluate model performance, and identify the factors that had the strongest relationship with healthcare expenses.
 
+## Dataset
 
-## ⚡ Initial Setup in Codespaces (Recommended)
+The dataset includes:
 
-No manual setup is required, as **Codespaces is automatically configured** with the predefined files created by the academy for you. Just follow these steps:
+- Age
+- BMI
+- Number of children
+- Sex
+- Smoking status
+- Region
+- Medical insurance charges
 
-1. **Wait for the environment to configure automatically**.
-   - All necessary packages and the database will install themselves.
-   - The automatically created `username` and `db_name` are in the **`.env`** file at the root of the project.
-2. **Once Codespaces is ready, you can start working immediately**.
+The target variable for the regression model is:
 
+`charges`
 
-## 💻 Local Setup (Only if you can't use Codespaces)
+## Tools Used
 
-**Prerequisites**
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+- Scikit-learn
+- Jupyter Notebook
 
-Make sure you have Python 3.11+ installed on your machine. You will also need pip to install the Python packages.
+## Analysis Process
 
-**Installation**
+The project included:
 
-Clone the project repository to your local machine.
+1. Loading and reviewing the medical insurance dataset
+2. Encoding categorical variables for modeling
+3. Splitting the data into training and testing sets
+4. Exploring correlations between variables
+5. Training a Linear Regression model
+6. Comparing actual versus predicted insurance charges
+7. Evaluating model performance
+8. Reviewing residuals and prediction errors
+9. Analyzing which variables had the strongest influence on predicted costs
 
-Navigate to the project directory and install the required Python packages:
+## Model Performance
 
-```bash
-pip install -r requirements.txt
-```
+Training-set results:
 
-**Create a database (if necessary)**
+- MAE: approximately $4,183
+- RMSE: approximately $6,083
+- R²: approximately 0.745
 
-Create a new database within the Postgres engine by customizing and executing the following command:
+The model explained roughly 74.5% of the variation in medical insurance charges within the training data.
 
-```bash
-$ psql -U postgres -c "DO \$\$ BEGIN 
-    CREATE USER my_user WITH PASSWORD 'my_password'; 
-    CREATE DATABASE my_database OWNER my_user; 
-END \$\$;"
-```
-Connect to the Postgres engine to use your database, manipulate tables, and data:
+## Key Findings
 
-```bash
-$ psql -U my_user -d my_database
-```
+Smoking status showed one of the strongest relationships with higher insurance charges.
 
-Once inside PSQL, you can create tables, run queries, insert, update, or delete data, and much more!
+Age and BMI also contributed significantly to predicted healthcare costs.
 
-**Environment Variables**
+The project demonstrated how healthcare financial data can be analyzed to identify cost drivers, evaluate prediction accuracy, and communicate patterns in medical expenses.
 
-Create a .env file in the root directory of the project to store your environment variables, such as your database connection string:
+## Skills Demonstrated
 
-```makefile
-DATABASE_URL="postgresql://<USER>:<PASSWORD>@<HOST>:<PORT>/<DB_NAME>"
+- Healthcare financial data analysis
+- Regression modeling
+- Data preparation
+- Data validation
+- Actual vs. predicted analysis
+- Error analysis
+- Trend identification
+- Data visualization
+- Analytical reporting
+- Python-based data analysis
 
-#example
-DATABASE_URL="postgresql://my_user:my_password@localhost:5432/my_database"
-```
+## Purpose
 
-## Running the Application
-
-To run the application, execute the app.py script from the root directory of the project:
-
-```bash
-python src/app.py
-```
-
-## Adding Models
-
-To add SQLAlchemy model classes, create new Python script files within the models/ directory. These classes should be defined according to your database schema.
-
-Example model definition (`models/example_model.py`):
-
-```py
-from sqlalchemy.orm import declarative_base
-from sqlalchemy import String
-from sqlalchemy.orm import Mapped, mapped_column
-
-Base = declarative_base()
-
-class ExampleModel(Base):
-    __tablename__ = 'example_table'
-    id: Mapped[int] = mapped_column(primary_key=True)
-    username: Mapped[str] = mapped_column(unique=True)
-```
-
-## Working with Data
-
-You can place your raw datasets in the data/raw directory, intermediate datasets in data/interim, and processed datasets ready for analysis in data/processed.
-
-To process data, you can modify the app.py script to include your data processing steps, using pandas for data manipulation and analysis.
-
-## Contributors
-
-This template was built as part of the [Data Science and Machine Learning Bootcamp](https://4geeksacademy.com/us/coding-bootcamps/datascience-machine-learning) by 4Geeks Academy by [Alejandro Sanchez](https://twitter.com/alesanchezr) and many other contributors. Learn more about [4Geeks Academy BootCamp programs](https://4geeksacademy.com/us/programs) here.
-
-Other templates and resources like this can be found on the school's GitHub page.
+This project demonstrates my ability to work with healthcare-related financial data, analyze cost patterns, evaluate model performance, and turn raw data into clear analytical findings.
