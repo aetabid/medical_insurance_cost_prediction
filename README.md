@@ -31,7 +31,7 @@ The dashboard compares average medical charges by:
 - Age group
 - BMI category
 
-![Medical Insurance Dashboard](medical_insurance_dashboard.png)
+![Medical Insurance Dashboard](images/medical_insurance_dashboard.png)
 
 ## Predictive Model
 
