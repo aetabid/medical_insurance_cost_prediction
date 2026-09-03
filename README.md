@@ -23,15 +23,6 @@ Python | Pandas | SQL | SQLite | Tableau | Scikit-learn | Git
 - Southeast had the highest regional average at **$14,735**
 - Obese smokers over 50 were the highest-cost group at about **$47,369**
 
-## Tableau Dashboard
-
-The dashboard compares average medical charges by:
-
-- Smoking status
-- Age group
-- BMI category
-
-![Medical Insurance Dashboard](medical_insurance_dashboard.png)
 
 ## Predictive Model
 
